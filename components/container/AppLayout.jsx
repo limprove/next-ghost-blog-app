@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Footer from './baseUI/Footer';
-import Header from './baseUI/Header';
+import Footer from '../baseUI/Footer';
+import Header from '../baseUI/Header';
 
 const AppLayout = ({ children }) => (
   <div className="flex flex-wrap">

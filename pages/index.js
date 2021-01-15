@@ -1,36 +1,32 @@
+import Head from 'next/head';
 import React from 'react';
-import PropTypes from 'prop-types';
-import AppLayout from '../components/AppLayout';
-import ContainerIndex from '../components/ContainerIndex';
 
-const { CONTENT_API_KEY, BLOG_URL } = process.env;
+import AppLayout from '../components/container/AppLayout';
+import ContailnerIndex2 from '../components/container/ContailnerIndex2';
+import ContainerIndex from '../components/container/ContainerIndex';
 
-export default function Home({ posts }) {
+// import wrapper from '../store/configureStore';
+// import { END } from 'redux-saga';
+
+export default function Home() {
   return (
-    <div>
+    <>
+      <Head>
+        <link rel="stylesheet" href="https://pagecdn.io/lib/font-awesome/5.10.0-11/css/all.min.css" integrity="sha256-p9TTWD+813MlLaxMXMbTA7wN/ArzGyW/L7c5+KkjOkM=" crossOrigin="anonymous" />
+      </Head>
       <AppLayout>
-        <ContainerIndex postData={posts} />
+        {/* <ContainerIndex /> */}
+        <ContailnerIndex2 />
       </AppLayout>
-    </div>
+    </>
   );
 }
 
-async function getPosts() {
-  const result = await fetch(
-    `${BLOG_URL}/ghost/api/v3/content/posts/?key=${CONTENT_API_KEY}&fields=id,title,url,feature_image,html&formats=plaintext`,
-  ).then((res) => res.json());
-
-  const { posts } = result;
-  return posts;
-}
-// eslint-disable-next-line
-export const getStaticProps = async ({ params }) => {
-  const posts = await getPosts();
-  return {
-    props: { posts },
-  };
-};
-
-Home.propTypes = {
-  posts: PropTypes.any.isRequired,
-};
+// next - serverside rendering
+// export const getServerSideProps = wrapper.getServerSideProps(async (context) => {
+//   context.store.dispatch({
+//     type: LOAD_POSTS_REQUEST,
+//   });
+//   context.store.dispatch(END);
+//   await context.store.sagaTask.toPromise();
+// });

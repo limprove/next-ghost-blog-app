@@ -2,3 +2,73 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#post_data__content h1 {
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
+
+#post_data__content >h2{
+  font-size: 1.4rem;
+  padding-bottom: 0.8rem;
+}
+
+#post_data__content p {
+  line-height: 2rem;
+  letter-spacing: normal;
+  word-spacing: normal;
+  word-break: keep-all;
+  font-size: 1rem;
+}
+
+#post_data__content pre {
+  font-family: "Courier 10 Pitch", Courier, monospace;
+  font-size: 1rem;
+  line-height: 140%;
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -o-pre-wrap;
+  background-color: #333;
+  border-radius: 10px;
+}
+
+#post_data__content pre>code {
+  margin: 1rem;
+  padding: 1.5rem 1rem;
+  border-radius: 4px;
+  position: relative;
+  font-family: "Inconsolata","Monaco","Consolas","Andale Mono","Bitstream Vera Sans Mono","Courier New",Courier,monospace;
+  display: block;
+  overflow-x: auto;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  color: #ddd;
+}
+
+/* List Styling */
+#post_data__content ol {
+  padding: 1rem 0;
+}
+
+#post_data__content li {
+  padding: 5px 0px 5px 5px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #efefef;
+  font-size: 0.8rem;
+}
+#post_data__content li:first-child {
+  border-top: 1px solid #efefef;
+  padding-top: 10px;
+}
+
+#post_data__content li::before {
+  content: "☑";
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0px 5px 6px 0px;
+}
+
+#post_data__content s {
+  color: #333;
+}
