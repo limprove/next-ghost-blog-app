@@ -1,7 +1,11 @@
 import Link from 'next/link';
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const CardIndex2 = ({ postTitle, postSubTitle, postImage, postId, postDate, postAuthor, postAuthorProfile, postTags }) => (
+const CardIndex2 = ({
+  postTitle, postSubTitle, postImage, postId,
+  postDate, postAuthor, postAuthorProfile, postTags, postReadingTime,
+}) => (
   <>
     <div>
       <Link href={`http://localhost:3000/post/${postId}`}>
@@ -16,20 +20,16 @@ const CardIndex2 = ({ postTitle, postSubTitle, postImage, postId, postDate, post
             </div>
             <div className="relative bg-gray-100">
               <div className="py-10 px-8">
-                <h3 className="text-2xl font-bold text-gray-800 ">{postTitle}</h3>
-                <div className="text-gray-600 text-sm font-medium flex mb-4 mt-2">
+                <h3 className="text-2xl font-bold text-gray-600">{postTitle}</h3>
+                <div className="text-gray-500 text-sm font-medium flex mb-4 mt-2">
                   <p>{postDate.substr(0, 10)}&nbsp;&nbsp;|&nbsp;&nbsp;</p>
-                  <a
-                    href="https://www.ls.graphics/"
-                    className="hover:text-black transition duration-300 ease-in-out"
-                  >{postAuthor}
-                  </a>
+                  {Number(postReadingTime) + 140}명 조회
                 </div>
 
                 {/* HashTag */}
                 <div className="my-3 flex flex-wrap -m-1">
-                  {postTags.map((v, i) => (
-                    <span key={i} className="m-1 bg-gray-200 hover:bg-gray-300 rounded-full px-3 font-bold text-sm leading-loose cursor-pointer">
+                  {postTags.map((v) => (
+                    <span key={v.id} className="m-1 bg-gray-200 hover:bg-gray-300 rounded-full px-3 font-bold text-sm leading-loose cursor-pointer">
                       #{v.name}
                     </span>
                   ))}
@@ -38,13 +38,13 @@ const CardIndex2 = ({ postTitle, postSubTitle, postImage, postId, postDate, post
                 <p className="leading-7 text-gray-500">
                   {postSubTitle.substr(0, 80)}
                 </p>
-                <div className="mt-10 flex justify-between items-center">
-                  <div>
+                <div className="mt-10 flex justify-between items-baseline">
+                  <div className="text-gray-500 font-extralight text-sm">
                     <img
                       src={postAuthorProfile}
                       alt=""
-                      className="w-9"
-                    />
+                      className="w-9 inline-block -mt-1"
+                    />&nbsp;&nbsp;by {postAuthor}
                   </div>
 
                   <div className="flex items-center">
@@ -78,3 +78,15 @@ const CardIndex2 = ({ postTitle, postSubTitle, postImage, postId, postDate, post
 );
 
 export default CardIndex2;
+
+CardIndex2.propTypes = {
+  postTitle: PropTypes.string.isRequired,
+  postSubTitle: PropTypes.string.isRequired,
+  postImage: PropTypes.string.isRequired,
+  postId: PropTypes.string.isRequired,
+  postDate: PropTypes.string.isRequired,
+  postAuthor: PropTypes.string.isRequired,
+  postAuthorProfile: PropTypes.string.isRequired,
+  postTags: PropTypes.array.isRequired,
+  postReadingTime: PropTypes.number.isRequired,
+};

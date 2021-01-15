@@ -2,8 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 
 import AppLayout from '../components/container/AppLayout';
-import ContailnerIndex2 from '../components/container/ContailnerIndex2';
-import ContainerIndex from '../components/container/ContainerIndex';
+import ContainerIndex2 from '../components/container/ContainerIndex2';
 
 // import wrapper from '../store/configureStore';
 // import { END } from 'redux-saga';
@@ -16,7 +15,7 @@ export default function Home() {
       </Head>
       <AppLayout>
         {/* <ContainerIndex /> */}
-        <ContailnerIndex2 />
+        <ContainerIndex2 />
       </AppLayout>
     </>
   );

@@ -15,6 +15,9 @@ export const initialState = {
   clearPostLoading: false, // Clear One Post
   clearPostDone: false,
   clearPostError: null,
+  searchPostsLoading: false, // Search Posts
+  searchPostsDone: false,
+  searchPostsError: null,
 };
 
 export const LOAD_POSTS_REQUEST = 'LOAD_POSTS_REQUEST';
@@ -33,9 +36,14 @@ export const CLEAR_POST_REQUEST = 'CLEAR_POST_REQUEST';
 export const CLEAR_POST_SUCCESS = 'CLEAR_POST_SUCCESS';
 export const CLEAR_POST_FAILURE = 'CLEAR_POST_FAILURE';
 
+export const SEARCH_POSTS_REQUEST = 'SEARCH_POSTS_REQUEST';
+export const SEARCH_POSTS_SUCCESS = 'SEARCH_POSTS_SUCCESS';
+export const SEARCH_POSTS_FAILURE = 'SEARCH_POSTS_FAILURE';
+
 // eslint-disable-next-line consistent-return
 const reducer = (state = initialState, action) => produce(state, (draft) => {
   switch (action.type) {
+    case SEARCH_POSTS_REQUEST:
     case LOAD_POSTS_REQUEST:
       draft.loadPostsLoading = true;
       draft.loadPostsDone = false;
@@ -47,6 +55,13 @@ const reducer = (state = initialState, action) => produce(state, (draft) => {
       draft.loadPostsError = null;
       draft.mainPosts = draft.mainPosts.concat(action.data.posts);
       break;
+    case SEARCH_POSTS_SUCCESS:
+      draft.searchPostsLoading = false;
+      draft.searchPostsDone = true;
+      draft.searchPostsError = null;
+      draft.mainPosts = draft.mainPosts.concat(action.data.posts);
+      break;
+    case SEARCH_POSTS_FAILURE:
     case LOAD_POSTS_FAILURE:
       draft.loadPostsLoading = false;
       draft.loadPostsDone = false;

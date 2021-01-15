@@ -1,16 +1,24 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { CLEAR_POSTS_REQUEST, LOAD_POSTS_REQUEST } from '../../reducers/post';
+import PropTypes from 'prop-types';
+import { CLEAR_POSTS_REQUEST, LOAD_POSTS_REQUEST, SEARCH_POSTS_REQUEST } from '../../reducers/post';
 import CardIndex2 from '../baseUI/CardIndex2';
 
-const ContainerIndex = () => {
+const ContainerIndex2 = ({ searchText }) => {
   const dispatch = useDispatch();
-  const { mainPosts, loadPostsLoading } = useSelector((state) => state.post);
+  const { mainPosts, searchPostsLoading } = useSelector((state) => state.post);
 
   useEffect(() => {
-    dispatch({
-      type: LOAD_POSTS_REQUEST,
-    });
+    if (searchText) {
+      dispatch({
+        type: SEARCH_POSTS_REQUEST,
+        data: searchText,
+      });
+    } else {
+      dispatch({
+        type: LOAD_POSTS_REQUEST,
+      });
+    }
     return () => {
       dispatch({
         type: CLEAR_POSTS_REQUEST,
@@ -21,7 +29,7 @@ const ContainerIndex = () => {
   return (
     <>
       {/* Loading circle */}
-      {loadPostsLoading ? (
+      {searchPostsLoading ? (
         <div className="w-full h-full fixed block top-0 left-0 bg-white opacity-75 z-50">
           <span
             className="text-gray-500 opacity-75 top-1/2 my-0 mx-auto block relative w-0 h-0"
@@ -46,6 +54,7 @@ const ContainerIndex = () => {
               postAuthor={v.authors[0].slug}
               postAuthorProfile={v.authors[0].profile_image}
               postTags={v.tags}
+              postReadingTime={v.reading_time}
             />
           ))}
         </div>
@@ -55,4 +64,8 @@ const ContainerIndex = () => {
   );
 };
 
-export default ContainerIndex;
+ContainerIndex2.propTypes = {
+  searchText: PropTypes.string.isRequired,
+};
+
+export default ContainerIndex2;

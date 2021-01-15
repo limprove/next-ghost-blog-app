@@ -22,7 +22,7 @@
 }
 
 #post_data__content pre {
-  font-family: "Courier 10 Pitch", Courier, monospace;
+  font-family: "Courier 10 Pitch", "monospace", "monospace", "Courier";
   font-size: 1rem;
   line-height: 140%;
   white-space: pre;
@@ -38,7 +38,7 @@
   padding: 1.5rem 1rem;
   border-radius: 4px;
   position: relative;
-  font-family: "Inconsolata","Monaco","Consolas","Andale Mono","Bitstream Vera Sans Mono","Courier New",Courier,monospace;
+  font-family: "Inconsolata","Monaco","Consolas","Andale Mono","Bitstream Vera Sans Mono","Courier New";
   display: block;
   overflow-x: auto;
   font-size: 1rem;
@@ -71,4 +71,13 @@
 
 #post_data__content s {
   color: #333;
+}
+
+#post_data__content img {
+  margin: 2.5rem 0;
+  height: 400px;
+}
+
+#post_data__content hr {
+  margin: 1rem 0;
 }

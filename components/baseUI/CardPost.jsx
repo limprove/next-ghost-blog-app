@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import Highlight from 'react-highlight.js';
 import CardComment from './CardComment';
 
 const CardPost = ({ postData }) => {
   function createMarkup() {
+    // const { html } = postData;
+    // html.replaceAll('<pre>', '<Highlight><pre>');
+    // html.replaceAll('</pre>', '</pre></Highlight>');
     return { __html: `${postData.html}` };
   }
 
   return (
     <main className="max-h-full mx-3 sm:mx-0">
       {/* Main Header */}
-      <h1 className="text-4xl font-hev px-8 my-8 md:text-6xl md:pl-36 md:my-12">
+      <h1 className="text-4xl font-hev px-8 my-8 md:text-6xl md:pl-36 md:my-12 text-gray-600">
         {postData.title}
       </h1>
 
@@ -32,6 +36,7 @@ const CardPost = ({ postData }) => {
         />
 
         {/* Content - Description */}
+
         <div
           id="post_data__content"
           className="my-4 md:px-36 md:my-8 text-gray-600 break-all"

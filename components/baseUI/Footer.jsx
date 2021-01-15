@@ -7,7 +7,7 @@ const Footer = () => (
     </div>
 
     <div className="flex">
-      <a href="#">
+      <a href="/">
         <svg
           className="mx-2 my-0 py-1"
           width="30px"
@@ -24,7 +24,7 @@ const Footer = () => (
         </svg>
       </a>
 
-      <a href="#">
+      <a href="/">
         <svg
           className="mx-2 my-0 py-1"
           width="30px"
@@ -52,7 +52,7 @@ const Footer = () => (
         </svg>
       </a>
 
-      <a href="#">
+      <a href="/">
         <svg
           className="mx-2 my-0 py-1"
           width="30px"
