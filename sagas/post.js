@@ -2,9 +2,9 @@ import axios from 'axios';
 import { all, call, fork, put, takeLatest } from 'redux-saga/effects';
 import { CLEAR_POSTS_FAILURE, CLEAR_POSTS_REQUEST, CLEAR_POSTS_SUCCESS, CLEAR_POST_FAILURE, CLEAR_POST_REQUEST, CLEAR_POST_SUCCESS, LOAD_POSTS_FAILURE, LOAD_POSTS_REQUEST, LOAD_POSTS_SUCCESS, LOAD_POST_FAILURE, LOAD_POST_REQUEST, LOAD_POST_SUCCESS, SEARCH_POSTS_FAILURE, SEARCH_POSTS_REQUEST, SEARCH_POSTS_SUCCESS } from '../reducers/post';
 
-import { contentApiKey } from '../config/config';
+const { CONTENT_API_KEY } = process.env;
 
-const prefix = `/?key=${contentApiKey}`;
+const prefix = `/?key=${CONTENT_API_KEY}`;
 
 function loadPostAPI(id) {
   return axios.get(`/posts/${id}${prefix}&include=tags,authors&file`);
