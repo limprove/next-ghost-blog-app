@@ -18,43 +18,27 @@ const Header = () => {
 
   return (
     <nav
-      className="flex w-full items-center justify-between flex-wrap bg-white py-4 lg:px-12"
+      className="flex w-full items-center justify-center sm:justify-between flex-wrap bg-white py-4 px-12"
     >
 
       {/* Left Logo Bar */}
-      <div className="flex justify-between lg:w-auto w-full lg:border-b-0 pl-6 pr-2 border-gray-300 lg:pb-0">
+      <div className="w-auto px-auto py-3 sm:mx-0 sm:w-auto border-b-0 border-gray-300">
         <Link href="/">
           <a>
-            <div className="flex items-center flex-shrink-0 text-gray-800 mr-16">
-              <span className="font-semibold text-xl tracking-tight">Prove Project</span>
-            </div>
+            <div className="font-semibold text-xl tracking-tight text-gray-800 mb-0">Prove Project</div>
           </a>
         </Link>
-
-        {/* Mobile Hamberger button */}
-        <div className="block lg:hidden ">
-          <button
-            type="submit"
-            id="nav"
-            className="flex items-center px-3 py-2 border-2 rounded text-gray-700 border-gray-700 hover:text-gray-700 hover:border-gray-700"
-          >
-            <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title>
-              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-            </svg>
-          </button>
-        </div>
       </div>
 
       {/* Right Component  */}
-      <div className="menu w-full  flex-grow lg:flex lg:items-center lg:w-auto lg:px-3 px-8">
-        <div className="text-md font-bold text-gray-700 lg:flex-grow" />
-        <div className="relative mx-auto text-gray-600 lg:block lg:mx-4 hidden">
+      <div className="menu items-center w-auto sm:mx-0">
+        <div className="relative mx-auto text-gray-600 lg:block lg:mx-0">
           <form onSubmit={onSubmit}>
             <input
               className="border-2 border-gray-300 bg-white h-10 pl-2 pr-12 rounded-lg text-sm focus:outline-none"
               type="search"
               name="search"
-              placeholder="검색어를 입력하세요"
+              placeholder="포스트를 검색하세요"
               onChange={onChange}
             />
             <button type="submit" className="absolute right-0 top-0 mt-3 mr-2">
@@ -77,13 +61,6 @@ const Header = () => {
               </svg>
             </button>
           </form>
-        </div>
-        <div className="flex ">
-          <Link href="/">
-            <a className="hidden lg:block text-md px-4  ml-2 py-2 rounded font-bold text-white mt-4 bg-gray-700 hover:text-white hover:bg-gray-800 lg:mt-0">
-              로그인
-            </a>
-          </Link>
         </div>
       </div>
 

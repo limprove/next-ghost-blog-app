@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Footer = () => (
-  <div className="w-full flex justify-between px-4 my-4 md:text-2xl md:px-36 md:my-8">
+  <div className="w-full flex justify-between px-4 my-4 md:text-2xl md:px-12 md:my-8">
     <div className="text-sm text-gray-500 font-light font-pop mt-2">
       Copyright © limprove
     </div>

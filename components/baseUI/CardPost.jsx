@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import Highlight from 'react-highlight.js';
 import CardComment from './CardComment';
 
 const CardPost = ({ postData }) => {
@@ -46,7 +45,7 @@ const CardPost = ({ postData }) => {
       </section>
 
       {/* Comment */}
-      <CardComment />
+      {/* <CardComment /> */}
     </main>
   );
 };
