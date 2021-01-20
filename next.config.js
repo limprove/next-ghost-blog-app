@@ -16,7 +16,7 @@ module.exports = withCSS({
       ...config,
       mode: prod ? 'production' : 'development',
       devtool: prod ? 'hidden-source-map' : 'eval',
-      loader: ['babel-loader'],
+      loader: [...'babel-loader'],
     };
   },
 });
