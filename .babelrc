@@ -1,3 +1,3 @@
 {
-  "presets": ["next/babel", "css-loader", "postcss-loader"]
+  "presets": ["next/babel", "module:css-loader", "module:postcss-loader"]
 }
