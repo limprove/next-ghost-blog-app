@@ -1,8 +1,6 @@
-const withCSS = require('@zeit/next-css');
-
 const prod = process.env.NODE_ENV === 'production';
 
-module.exports = withCSS({
+module.exports = {
   env: {
     CONTENT_API_KEY: '7b7f56ef7ce29367627b12e73b',
     BLOG_URL: 'https://next-ghost-blog-app.herokuapp.com',
@@ -19,4 +17,4 @@ module.exports = withCSS({
 
     };
   },
-});
+};
