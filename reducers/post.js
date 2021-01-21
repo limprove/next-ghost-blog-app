@@ -18,6 +18,7 @@ export const initialState = {
   searchPostsLoading: false, // Search Posts
   searchPostsDone: false,
   searchPostsError: null,
+  codeBlock: [],
 };
 
 export const LOAD_POSTS_REQUEST = 'LOAD_POSTS_REQUEST';
@@ -101,7 +102,8 @@ const reducer = (state = initialState, action) => produce(state, (draft) => {
       draft.loadPostLoading = false;
       draft.loadPostDone = true;
       draft.loadPostError = null;
-      draft.singlePost = action.data;
+      draft.singlePost = action.data.content;
+      draft.codeBlock = action.data.codeblock;
       break;
     case LOAD_POST_FAILURE:
       draft.loadPostLoading = false;

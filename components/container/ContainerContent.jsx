@@ -7,7 +7,7 @@ import LoadingCircle from '../baseUI/LoadingCircle';
 
 const ContainerContent = ({ postId }) => {
   const dispatch = useDispatch();
-  const { singlePost, loadPostLoading } = useSelector((state) => state.post);
+  const { singlePost, loadPostLoading, codeBlock } = useSelector((state) => state.post);
 
   useEffect(() => {
     dispatch({
@@ -23,7 +23,9 @@ const ContainerContent = ({ postId }) => {
 
   return (
     <>
-      {loadPostLoading ? (<LoadingCircle />) : (<CardPost postData={singlePost} />)}
+      {loadPostLoading
+        ? (<LoadingCircle />)
+        : (<CardPost postData={singlePost} codeBlock={codeBlock} />)}
 
     </>
   );

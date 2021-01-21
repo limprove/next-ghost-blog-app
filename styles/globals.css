@@ -13,6 +13,10 @@
   font-size: 1.4rem;
   padding-bottom: 0.8rem;
 }
+#post_data__content >h3{
+  font-size: 1.2rem;
+  padding-bottom: 0.6rem;
+}
 
 #post_data__content p {
   line-height: 2rem;
@@ -22,29 +26,49 @@
   font-size: 1rem;
 }
 
+#post_data__content p strong {
+  line-height: 2rem;
+  letter-spacing: normal;
+  word-spacing: normal;
+  word-break: keep-all;
+  font-size: 1.2rem;
+  
+}
+
+#post_data__content blockquote {
+  border-left: 5px solid #888;
+  margin: 10px;
+  padding: 10px;
+  background-color: whitesmoke;
+}
+
 #post_data__content pre {
-  font-family: "Courier 10 Pitch", "monospace", "monospace", "Courier";
+  font-family: "monospace",  "Courier";
   font-size: 1rem;
   line-height: 140%;
   white-space: pre;
   white-space: pre-wrap;
   white-space: -moz-pre-wrap;
   white-space: -o-pre-wrap;
-  background-color: #333;
+  background-color:rgb(251, 252, 253);
   border-radius: 10px;
+  font-weight: 300;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 #post_data__content pre>code {
-  margin: 1rem;
-  padding: 1.5rem 1rem;
+  margin: 0.5rem;
+  padding: 1rem 1rem;
   border-radius: 4px;
   position: relative;
-  font-family: "Inconsolata","Monaco","Consolas","Andale Mono","Bitstream Vera Sans Mono","Courier New";
+  font-family: "monospace",  "Courier";
   display: block;
   overflow-x: auto;
   font-size: 1rem;
   line-height: 1.6rem;
-  color: #ddd;
+  color: #777;
+  font-weight: 300;
 }
 
 /* List Styling */

@@ -13,9 +13,27 @@ function loadPostAPI(id) {
 function* loadPost(action) {
   try {
     const result = yield call(loadPostAPI, action.data);
+
+    const { html } = result.data.posts[0];
+    const codeblock = html.split('<pre><code>');
+    let newblock = [];
+    codeblock.map((v) => {
+      if (codeblock.length === 1) {
+        newblock.push(v);
+      }
+      if (codeblock.length > 1) {
+        const current = v.split('</code></pre>');
+        newblock = [...newblock, ...current];
+      }
+    });
+
     yield put({
       type: LOAD_POST_SUCCESS,
-      data: result.data.posts[0],
+      data: {
+        content: result.data.posts[0],
+        codeblock: newblock,
+      },
+
     });
   } catch (err) {
     console.error(err);
