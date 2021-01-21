@@ -18,11 +18,11 @@ const Header = () => {
 
   return (
     <nav
-      className="flex w-full items-center justify-center sm:justify-between flex-wrap bg-white py-4 px-12"
+      className="block sm:flex w-full items-center justify-center sm:justify-between flex-wrap bg-white py-4 px-12"
     >
 
       {/* Left Logo Bar */}
-      <div className="w-auto px-auto py-3 sm:mx-0 sm:w-auto border-b-0 border-gray-300">
+      <div className="mx-auto text-center w-auto px-auto py-0 sm:py-3 sm:mx-0 border-b-0 border-gray-300">
         <Link href="/">
           <a>
             <div className="font-semibold text-xl tracking-tight text-gray-800 mb-0">Prove Project</div>
@@ -31,11 +31,11 @@ const Header = () => {
       </div>
 
       {/* Right Component  */}
-      <div className="menu items-center w-auto sm:mx-0">
+      <div className="hidden sm:block menu items-center w-auto sm:mx-0">
         <div className="relative mx-auto text-gray-600 lg:block lg:mx-0">
           <form onSubmit={onSubmit}>
             <input
-              className="border-2 border-gray-300 bg-white h-10 pl-2 pr-12 rounded-lg text-sm focus:outline-none"
+              className="sm:border-2 border-gray-300 bg-white h-10 pl-12 sm:pl-2 pr-12 rounded-lg text-sm focus:outline-none"
               type="search"
               name="search"
               placeholder="포스트를 검색하세요"
