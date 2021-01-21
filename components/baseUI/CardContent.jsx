@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import stackoverflow from 'react-syntax-highlighter/dist/esm/styles/hljs/stackoverflow-light';
 
 const CardContent = () => {
   const { codeBlock } = useSelector((state) => state.post);
@@ -12,7 +11,7 @@ const CardContent = () => {
         if (i % 2) {
           return (
             <>
-              <SyntaxHighlighter language="javascript" style={stackoverflow}>
+              <SyntaxHighlighter language="javascript">
                 {v}
               </SyntaxHighlighter>
             </>
