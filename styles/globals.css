@@ -106,3 +106,7 @@
 #post_data__content hr {
   margin: 1rem 0;
 }
+
+.utterances {
+  max-width: 80% !important;
+}
