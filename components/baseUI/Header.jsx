@@ -18,7 +18,7 @@ const Header = () => {
 
   return (
     <nav
-      className="block sm:flex w-full items-center justify-center sm:justify-between flex-wrap bg-white py-4 px-12"
+      className="block w-full sm:flex items-center justify-center sm:justify-between flex-wrap bg-white py-4 px-12"
     >
 
       {/* Left Logo Bar */}

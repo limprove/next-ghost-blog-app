@@ -6,7 +6,7 @@ const CardContent = () => {
   const { codeBlock } = useSelector((state) => state.post);
 
   return (
-    <div id="post_data__content" className="my-4 md:px-36 md:my-8 text-gray-600 break-all">
+    <div id="post_data__content" className="w-full my-4 px-3 md:px-36 md:my-8 text-gray-600 break-all">
       {codeBlock.map((v, i) => {
         if (i % 2) {
           return (
