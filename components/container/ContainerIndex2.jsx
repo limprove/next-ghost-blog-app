@@ -1,13 +1,17 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { CLEAR_POSTS_REQUEST, LOAD_POSTS_REQUEST, SEARCH_POSTS_REQUEST } from '../../reducers/post';
+import { CLEAR_POSTS_REQUEST, LOAD_COMMENTS_REQUEST, LOAD_POSTS_REQUEST, SEARCH_POSTS_REQUEST } from '../../reducers/post';
 import CardIndex2 from '../baseUI/CardIndex2';
 import LoadingCircle from '../baseUI/LoadingCircle';
 
 const ContainerIndex2 = ({ searchText }) => {
   const dispatch = useDispatch();
-  const { mainPosts, searchPostsLoading, loadPostsLoading } = useSelector((state) => state.post);
+  const {
+    mainPosts,
+    searchPostsLoading,
+    loadPostsLoading,
+    loadCommentsData } = useSelector((state) => state.post);
 
   useEffect(() => {
     if (searchText) {
@@ -20,6 +24,7 @@ const ContainerIndex2 = ({ searchText }) => {
         type: LOAD_POSTS_REQUEST,
       });
     }
+
     return () => {
       dispatch({
         type: CLEAR_POSTS_REQUEST,
@@ -47,6 +52,7 @@ const ContainerIndex2 = ({ searchText }) => {
               postAuthorProfile={v.authors[0].profile_image}
               postTags={v.tags}
               postReadingTime={v.reading_time}
+              commentsLength={v.comments_length}
             />
           ))}
         </div>
@@ -57,7 +63,7 @@ const ContainerIndex2 = ({ searchText }) => {
 };
 
 ContainerIndex2.propTypes = {
-  searchText: PropTypes.string.isRequired,
+  searchText: PropTypes.any,
 };
 
 export default ContainerIndex2;

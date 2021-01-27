@@ -3,8 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const CardIndex2 = ({
-  postTitle, postSubTitle, postImage, postId,
-  postDate, postAuthor, postAuthorProfile, postTags, postReadingTime,
+  postTitle, postSubTitle, postImage, postId, commentsLength,
+  postDate, postAuthor, postAuthorProfile, postTags,
 }) => {
   const { APP_URL } = process.env;
   return (
@@ -25,7 +25,7 @@ const CardIndex2 = ({
                   <h3 className="text-2xl font-bold text-gray-600">{postTitle}</h3>
                   <div className="text-gray-500 text-sm font-medium flex mb-4 mt-2">
                     <p>{postDate.substr(0, 10)}&nbsp;&nbsp;|&nbsp;&nbsp;</p>
-                    {Number(postReadingTime) + 140}명 조회
+                    {commentsLength}개의 댓글
                   </div>
 
                   {/* HashTag */}
@@ -91,5 +91,5 @@ CardIndex2.propTypes = {
   postAuthor: PropTypes.string.isRequired,
   postAuthorProfile: PropTypes.string.isRequired,
   postTags: PropTypes.array.isRequired,
-  postReadingTime: PropTypes.number.isRequired,
+  commentsLength: PropTypes.string.isRequired,
 };

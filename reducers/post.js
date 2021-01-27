@@ -18,6 +18,8 @@ export const initialState = {
   searchPostsLoading: false, // Search Posts
   searchPostsDone: false,
   searchPostsError: null,
+
+  loadCommentsData: {},
   codeBlock: [],
 };
 
@@ -110,6 +112,7 @@ const reducer = (state = initialState, action) => produce(state, (draft) => {
       draft.loadPostDone = false;
       draft.loadPostError = action.err;
       break;
+
     default:
       return state;
   }
